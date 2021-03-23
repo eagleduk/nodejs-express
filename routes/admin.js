@@ -5,8 +5,10 @@ router.get("/", (req, res) => {
   res.send("admin page");
 });
 
-router.get("/product", (req, res) => {
-  res.send("admin product page");
+router.get("/products", (req, res) => {
+  res.render("admin/products.html", {
+    message: "Hello! admin product!!",
+  });
 });
 
 module.exports = router;

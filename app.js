@@ -1,9 +1,16 @@
 const express = require("express");
-const admin = require("./router/admin");
-const contact = require("./router/contact");
+const nunjucks = require("nunjucks");
+
+const admin = require("./routes/admin");
+const contact = require("./routes/contact");
 
 const app = express();
 const PORT = 3000;
+
+nunjucks.configure("template", {
+  autoescape: true,
+  express: app,
+});
 
 app.get("/", (req, res) => {
   res.send("hello express");
