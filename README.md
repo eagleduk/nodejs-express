@@ -27,3 +27,8 @@
 - html 의 form 데이터를 추출해주는 미들웨어
 - 같은 URL 이라도 router 에서 Get, Post, Delete 등의 method 방식으로 요청을 분리 할 수있다.
 - REST API 에서 URL 은 같아도 method 방식에 따른 결과가 다른 이유이다.
+
+8. 정적 파일 처리
+
+- URL 의 주소와 실제 파일 폴더를 매핑 해주는 역할
+- express.static 으로 실제 로컬폴더를 지정하고, URL 주소를 매핑한다.
