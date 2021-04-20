@@ -21,3 +21,9 @@
 
 - URL 요청을 받았을 때, 중간에서 한번 요청을 캐치하여 필요 로직을 수행할 수 있다.
 - URL 에 따른 권한을 부여할 때 사용하기 유용하다.
+
+7. form ( body-parser )
+
+- html 의 form 데이터를 추출해주는 미들웨어
+- 같은 URL 이라도 router 에서 Get, Post, Delete 등의 method 방식으로 요청을 분리 할 수있다.
+- REST API 에서 URL 은 같아도 method 방식에 따른 결과가 다른 이유이다.

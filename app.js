@@ -1,6 +1,7 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const logger = require("morgan");
+const bodyParser = require("body-parser");
 
 const admin = require("./routes/admin");
 const contact = require("./routes/contact");
@@ -15,6 +16,8 @@ nunjucks.configure("template", {
 
 // Morgan 미들웨어 = 현재 요청하는 URL 주소를 출력한다.
 app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("hello express");
