@@ -11,6 +11,11 @@
 
 <body>
     <div class="container" style="padding-top:100px;">
+        {% if isLogin %}
+        Welcome
+        {% else %}
+        Log in
+        {% endif %}
 
         {% block content %}{% endblock %}
 
