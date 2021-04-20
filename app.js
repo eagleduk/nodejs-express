@@ -1,5 +1,6 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
+const logger = require("morgan");
 
 const admin = require("./routes/admin");
 const contact = require("./routes/contact");
@@ -12,11 +13,19 @@ nunjucks.configure("template", {
   express: app,
 });
 
+// Morgan 미들웨어 = 현재 요청하는 URL 주소를 출력한다.
+app.use(logger("dev"));
+
 app.get("/", (req, res) => {
   res.send("hello express");
 });
 
-app.use("/admin", admin);
+function adminMiddleware(req, res, next) {
+  console.log("adminMiddleware");
+  next();
+}
+
+app.use("/admin", adminMiddleware, admin);
 app.use("/contact", contact);
 
 app.listen(PORT, () => {
